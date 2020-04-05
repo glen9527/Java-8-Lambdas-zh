@@ -70,7 +70,7 @@ The primitive specializations have a very clear-cut naming convention. If the re
 LongFunction
 Figure 4-2. LongFunction
 
-There are also specialized versions of Stream for these primitive types that prefix the type name, such as LongStream. In fact, methods like mapToLong don’t return a Stream; they return these specialized streams. On the specialized streams, the map implementation is also specialized: it takes a function called LongUnaryOperator, visible in Figure 4-3, which maps a long to a long. It’s also possible to get back from a primitive stream to a boxed stream through higher-order function variations such as mapToObj and the boxed method, which returns a stream of boxed objects such as Stream<Long>.
+There are also specialized versions of Stream for these primitive types that prefix the type name, such as LongStream. In fact, methods like mapToLong don’t return a Stream; they return these specialized streams. On the specialized streams, the map implementation is also specialized: it takes a function called LongUnaryOperator, visible in Figure 4-3, which maps a long to a long. It’s also possible to get back from a primitive stream to a boxed stream through higher-order function variations such as mapToObj and the boxed method, which returns a stream of boxed objects such as `Stream<Long>`.
 
 LongUnaryOperator
 Figure 4-3. LongUnaryOperator

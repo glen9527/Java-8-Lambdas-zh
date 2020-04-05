@@ -1,6 +1,6 @@
 // .vuepress/config.js
 module.exports = {
-  title: "Clean Architecture 中文",
+  title: "《Java 8 函数式编程》中文翻译",
   base: "/doc-java8/",
   themeConfig: {
     repo: "gdut-yy/Java-8-Lambdas-zh",

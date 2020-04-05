@@ -922,7 +922,7 @@ public List<String> findHeadings(Reader input) {
 }
 ```
 
-Unfortunately, our heading-finding code is coupled with the resource-management and file-handling code. What we really want to do is write some code that finds the headings and delegates the details of a file to another method. We can use a Stream<String> as the abstraction we want to depend upon rather than a file. A Stream is much safer and less open to abuse. We also want to be able to a pass in a function that creates our domain exception if there’s a problem with the file. This approach, shown in Example 8-43, allows us to segregate the domain-level error handling from the resource management–level error handling.
+Unfortunately, our heading-finding code is coupled with the resource-management and file-handling code. What we really want to do is write some code that finds the headings and delegates the details of a file to another method. We can use a `Stream<String>` as the abstraction we want to depend upon rather than a file. A Stream is much safer and less open to abuse. We also want to be able to a pass in a function that creates our domain exception if there’s a problem with the file. This approach, shown in Example 8-43, allows us to segregate the domain-level error handling from the resource management–level error handling.
 
 Example 8-43. The domain logic with file handling split out
 
