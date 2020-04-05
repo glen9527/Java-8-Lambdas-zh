@@ -104,8 +104,7 @@ eventBus.registerHandler(name, (Message<String> msg) -> {
 
 This code is actually taking advantage of Vert.x’s event bus, which allows us to send messages between verticles in a nonblocking fashion (see Figure 9-1). The registerHandler method allows us to associate a handler with a certain address, so when a message is sent to that address the handler gets called with the message as its argument. Here we use the username as the address.
 
-.Eventbus Sending
-Figure 9-1. Event bus sending
+<Figures figure="9-1">Event bus sending</Figures>
 
 By registering handlers at addresses and sending messages to them, it’s possible to build up very sophisticated and/or decoupled sets of services that react in an entirely nonblocking fashion. Note that within our design, we share no state.
 
@@ -127,8 +126,7 @@ Once we’ve parsed out the commands, we’re going to implement the broadcastMe
 
 There’s a different pattern of communication here as well. Instead of just having to send messages to a single user, you now have the ability to publish to multiple users. Fortunately, Vert.x’s event bus also lets us publish a message to multiple handlers (see Figure 9-2). This lets us use a similar overarching approach.
 
-.Eventbus Publishing
-Figure 9-2. Event bus publishing
+<Figures figure="9-2">Event bus publishing</Figures>
 
 The only code difference is that we use the publish method on the event bus rather than the send method. To avoid overlapping with the existing addresses whenever a user uses the ! command, it gets published to the user’s name suffixed with .followers. So, for example, when bob publishes a message it goes to any handler registered on bob.followers (Example 9-5).
 
@@ -297,8 +295,7 @@ What this means in the case of Example 9-9 is that we can’t start either of th
 
 We could take the blocking get calls and drag them down into the execution body of lookupTracks and lookupArtists. This would solve the problem, but would also result in uglier code and an inability to reuse credentials between multiple calls.
 
-Both lookup actions don’t need to wait for both login actions
-Figure 9-3. Both lookup actions don’t need to wait for both login actions
+<Figures figure="9-3">Both lookup actions don’t need to wait for both login actions</Figures>
 
 What we really want here is a way of acting on the result of a Future, without having to make a blocking get call. We want to combine a Future with a callback.
 
@@ -358,8 +355,7 @@ Example 9-12. Completing a future by providing a value
 future.complete(artist);
 ```
 
-A completable future is an I-owe-you which can be processed by handlers
-Figure 9-4. A completable future is an IOU that can be processed by handlers
+<Figures figure="9-4">A completable future is an IOU that can be processed by handlers</Figures>
 
 Of course, a very common usage of CompletableFuture is to asynchronously run a block of code. This code completes and returns a value. In order to avoid lots of people having to implement the same code over and over again, there is a useful factory method for creating a CompletableFuture, shown in Example 9-13, called supplyAsync.
 

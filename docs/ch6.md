@@ -14,8 +14,7 @@ After a quick scan over the table of contents of this book, you might have notic
 
 Concurrency arises when two tasks are making progress at overlapping time periods. Parallelism arises when two tasks are happening at literally the same time, such as on a multicore CPU. If a program is undertaking two tasks and they are being given small slices of a single CPU core’s time, then it is exhibiting concurrency but not parallelism. This difference is shown in Figure 6-1.
 
-.Comparison of Concurrency and Parallelism
-Figure 6-1. Comparison of concurrency and parallelism
+<Figures figure="6-1">Comparison of concurrency and parallelism</Figures>
 
 The goal of parallelism is to reduce the runtime of a specific task by breaking it down into smaller components and performing them in parallel. This doesn’t mean that you won’t do as much work as you would if you were running them sequentially—you are just getting more horses to pull the same cart for a shorter time period. In fact, it’s usually the case that running a task in parallel requires more work to be done by the CPU than running it sequentially would.
 
@@ -248,8 +247,7 @@ Under the hood, parallel streams back onto the fork/join framework. The fork sta
 
 Figure 6-2 shows how this might apply to Example 6-6.
 
-.Decomposing and merging using Fork/Join
-Figure 6-2. Decomposing and merging using fork/join
+<Figures figure="6-2">Decomposing and merging using fork/join</Figures>
 
 Let’s assume that the streams framework is splitting up our work to operate in parallel on a four-core machine:
 

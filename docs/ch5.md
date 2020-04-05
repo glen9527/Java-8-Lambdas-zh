@@ -193,8 +193,7 @@ This approach has a couple of downsides, though. First, you’ll need two stream
 
 Consequently, there is a collector, partitioningBy, that takes a stream and partitions its contents into two groups (see Figure 5-1). It uses a Predicate to determine whether an element should be part of the true group or the false group and returns a Map from Boolean to a List of values. So, the Predicate returns true for all the values in the true List and false for the other List.
 
-.The partitioningBy Collector
-Figure 5-1. The partitioningBy collector
+<Figures figure="5-1">The partitioningBy collector</Figures>
 
 We can use these features to split out bands (artists with more than one member) from solo artists. In this case, our partitioning function tells us whether the artist is a solo act. Example 5-8 provides an implementation.
 
@@ -230,8 +229,7 @@ public Map<Artist, List<Album>> albumsByArtist(Stream<Album> albums) {
 
 As with the other examples, we’re calling collect on the Stream and passing in a Collector. Our groupingBy collector (Figure 5-2) takes a classifier function in order to partition the data, just like the partitioningBy collector took a Predicate to split it up into true and false values. Our classifier is a Function—the same type that we use for the common map operation.
 
-.The groupingBy Collector
-Figure 5-2. The groupingBy collector
+<Figures figure="5-2">The groupingBy collector</Figures>
 
 NOTE
 
@@ -508,8 +506,7 @@ Let’s step through this in diagram form while we’re walking through the code
 
 Each of the four components of our Collector are functions, so we’ll represent them as arrows. The values in our Stream are circles, and the final value we’re producing will be an oval. At the start of the collect operation our supplier is used to create new container objects (see Figure 5-3).
 
-.Supplier
-Figure 5-3. Supplier
+<Figures figure="5-3">Supplier</Figures>
 
 Our collector’s accumulator performs the same job as the second argument to reduce. It takes the current element and the result of the preceding operation and returns a new value. We’ve already implemented this logic in the add method of our StringCombiner, so we just refer to that (see Example 5-27).
 
@@ -523,8 +520,7 @@ Example 5-27. An accumulator is a function to fold the current element into the 
 
 Our accumulator is used to fold the stream’s values into the container objects (Figure 5-4).
 
-.Accumulator
-Figure 5-4. Accumulator
+<Figures figure="5-4">Accumulator</Figures>
 
 The combine method is an analogue of the third method of our reduce operation. If we have two containers, then we need to be able to merge them together. Again, we’ve already implemented this in a previous refactor step, so we just use the StringCombiner.merge method (Example 5-28).
 
@@ -538,13 +534,11 @@ Example 5-28. A combiner merges together two containers
 
 During the collect operation, our container objects are pairwise merged using the defined combiner until we have only one container at the end (Figure 5-5).
 
-.Combiner
-Figure 5-5. Combiner
+<Figures figure="5-5">Combiner</Figures>
 
 You might remember that the last step in our refactoring process, before we got to collectors, was to put the toString method inline at the end of the method chain. This converted our StringCombiner into the String that we really wanted (Figure 5-6).
 
-.Finisher
-Figure 5-6. Finisher
+<Figures figure="5-6">Finisher</Figures>
 
 Our collector’s finisher method performs the same purpose. We’ve already folded our mutable container over a Stream of values, but it’s not quite the final value that we want. The finisher gets called here, once, in order to make that conversion. This is especially useful if we want to create an immutable final value, such as a String, but our container is mutable.
 

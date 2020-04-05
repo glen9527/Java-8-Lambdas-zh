@@ -37,8 +37,7 @@ A command object is an object that encapsulates all the information required to 
 - Client
   - Creates concrete command instances
 
-.The Command Pattern
-Figure 8-1. The command pattern
+<Figures figure="8-1">The command pattern</Figures>
 
 Let’s look at a concrete example of the command pattern and see how it improves with lambda expressions. Suppose we have a GUI Editor component that has actions upon it that we’ll be calling, such as open or save, like in Example 8-1. We want to implement macro functionality—that is, a series of operations that can be recorded and then run later as a single operation. This is our receiver.
 
@@ -182,8 +181,7 @@ An example algorithm we might want to encapsulate is compressing files. We’ll 
 
 First we need to define the API for our strategy (see Figure 8-2), which I’ll call CompressionStrategy. Each of our compression algorithms will implement this interface. They have the compress method, which takes and returns an OutputStream. The returned OutputStream is a compressed version of the input (see Example 8-9).
 
-.The Strategy Pattern
-Figure 8-2. The strategy pattern
+<Figures figure="8-2">The strategy pattern</Figures>
 
 Example 8-9. Defining a strategy interface for compressing data
 
@@ -894,8 +892,7 @@ It’s fairly obvious that we can separate this code into three basic modules:
 
 We can visualize the relationship between these modules as shown in Figure 8-3.
 
-.Dependencies
-Figure 8-3. Dependencies
+<Figures figure="8-3">Dependencies</Figures>
 
 In this system, while reuse of the accumulation model is more complex, the business card reader and the address book storage do not depend on any other components. We can therefore easily reuse them in another system. We can also change them; for example, we might want to use a different reader, such as reading from people’s Twitter profiles, or we might want to store our address book in something other than a text file, such as a database.
 

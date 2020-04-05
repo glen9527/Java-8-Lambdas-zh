@@ -44,8 +44,7 @@ while(iterator.hasNext()) {
 }
 ```
 
-.External Iteration
-Figure 3-1. External iteration
+<Figures figure="3-1">External iteration</Figures>
 
 External iteration has some negative issues associated with it, too. First, it becomes hard to abstract away the different behavioral operations that we’ll encounter later in this chapter. It is also an approach that is inherently serial in nature. The big-picture issue here is that using a for loop conflates what you are doing with how you are doing it.
 
@@ -61,8 +60,7 @@ long count = allArtists.stream()
 
 Figure 3-2 depicts the flow of method calls with respect to the library; compare it with Figure 3-1.
 
-.Internal Iteration
-Figure 3-2. Internal iteration
+<Figures figure="3-2">Internal iteration</Figures>
 
 NOTE
 
@@ -178,8 +176,7 @@ assertEquals(asList("A", "B", "HELLO"), collected);
 
 map is one of the most commonly used Stream operations (see Figure 3-3). You could probably have guessed this, given how frequently you have implemented something similar to the aforementioned for loop. Example 3-9 is the same example of turning a list of strings into their uppercase equivalents using the stream framework.
 
-the map operation
-Figure 3-3. The map operation
+<Figures figure="3-3">The map operation</Figures>
 
 Example 3-9. Converting strings to uppercase equivalents using map
 
@@ -193,8 +190,7 @@ assertEquals(asList("A", "B", "HELLO"), collected);
 
 The lambda expression passed into map 1 both takes a String as its only argument and returns a String. It isn’t necessary for both the argument and the result to be the same type, but the lambda expression passed in must be an instance of Function (Figure 3-4). This is a generic functional interface with only one argument.
 
-the Function interface
-Figure 3-4. The Function interface
+<Figures figure="3-4">The Function interface</Figures>
 
 ### 3.3.3 FILTER
 
@@ -202,8 +198,7 @@ NOTE
 
 Any time you’re looping over some data and checking each element, you might want to think about using the new filter method on Stream (see Figure 3-5).
 
-the filter operation
-Figure 3-5. The filter operation
+<Figures figure="3-5">The filter operation</Figures>
 
 We’ve already looked at a filter example, so you may want to skip this section if you feel familiar with the concept. Still here? Good! Suppose we’ve got a list of strings and we want to find all the strings that start with a digit. So, "1abc" would be accepted and "abc" wouldn’t. We might write some code that loops over a list and uses an if statement to see what the first character is, something like the code in Example 3-10.
 
@@ -237,8 +232,7 @@ Much like map, filter is a method that takes just a single function as an argume
 
 Because this function is doing the same job as the if statement, it must return either true or false for a given value. The Stream after the filter has the elements of the Stream beforehand, which evaluated to true. The functional interface for this type of function is our old friend from the previous chapter, the Predicate (shown in Figure 3-6).
 
-the Predicate interface
-Figure 3-6. The Predicate interface
+<Figures figure="3-6">The Predicate interface</Figures>
 
 ### 3.3.4 FLATMAP
 
@@ -246,8 +240,7 @@ NOTE
 
 flatMap (see Figure 3-7) lets you replace a value with a Stream and concatenates all the streams together.
 
-the flatMap operation
-Figure 3-7. The flatMap operation
+<Figures figure="3-7">The flatMap operation</Figures>
 
 You’ve already seen the map operation, which replaces a value in a Stream with a new value. Sometimes you want a variant of map in which you produce a new Stream object as the replacement. Frequently you don’t want to end up with a stream of streams, though, and this is where flatMap comes in handy.
 
@@ -335,8 +328,7 @@ Use the reduce operation when you’ve got a collection of values and you want t
 
 Let’s demonstrate the reduce operation by adding up streams of numbers. The overall pattern is demonstrated in Figure 3-8. We start with a count of 0—the count of an empty Stream—and fold together each element with an accumulator, adding the element to the accumulator at every step. When we reach the final Stream element, our accumulator has the sum of all the elements.
 
-Implementing addition using the reduce operation
-Figure 3-8. Implementing addition using the reduce operation
+<Figures figure="3-8">Implementing addition using the reduce operation</Figures>
 
 Example 3-16 shows what is going on in code. The lambda expression, known as a reducer, performs the summing and takes two arguments. acc is the accumulator and holds the current sum. It is also passed in the current element in the Stream.
 

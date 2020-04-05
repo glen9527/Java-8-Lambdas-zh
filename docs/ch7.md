@@ -141,8 +141,7 @@ It still suffers from the same reuse and readability issues, because there are c
 
 Let’s think about how we’re going to implement such a function. We’re going to return a long with the count of some feature for all the albums. We also need to take in some kind of lambda expression that tells us what the number for each album is. This means we need a method parameter that returns us a long for each album; conveniently, there is already a ToLongFunction in the Java 8 core libraries. As shown in Figure 7-1, it is parameterized by its argument type, so we’re using `ToLongFunction<Album>`.
 
-ToLongFunction
-Figure 7-1. ToLongFunction
+<Figures figure="7-1">ToLongFunction</Figures>
 
 Now that we’ve made these decisions, the body of the method follows naturally. We take a Stream of the albums, map each album to a long, and then sum them. When we implement the consumer-facing methods such as countTracks, we pass in a lambda expression with behavior specific to that domain method. In this case, we’re mapping the album to the number of tracks. Example 7-7 is what our code looks like when we’ve converted the code to use this domain-appropriate method.
 

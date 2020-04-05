@@ -62,18 +62,15 @@ There is also a computational overhead when converting from a primitive type to 
 
 As a consequence of these performance overheads, the streams library differentiates between the primitive and boxed versions of some library functions. The mapToLong higher-order function and ToLongFunction, shown in Figure 4-1, are examples of this effort. Only the int, long, and double types have been chosen as the focus of the primitive specialization implementation in Java 8 because the impact is most noticeable in numerical algorithms.
 
-ToLongFunction
-Figure 4-1. ToLongFunction
+<Figures figure="4-1">ToLongFunction</Figures>
 
 The primitive specializations have a very clear-cut naming convention. If the return type is a primitive, the interface is prefixed with To and the primitive type, as in ToLongFunction (shown in Figure 4-1). If the argument type is a primitive type, the name prefix is just the type name, as in LongFunction (Figure 4-2). If the higher-order function uses a primitive type, it is suffixed with To and the primitive type, as in mapToLong.
 
-LongFunction
-Figure 4-2. LongFunction
+<Figures figure="4-2">LongFunction</Figures>
 
 There are also specialized versions of Stream for these primitive types that prefix the type name, such as LongStream. In fact, methods like mapToLong don’t return a Stream; they return these specialized streams. On the specialized streams, the map implementation is also specialized: it takes a function called LongUnaryOperator, visible in Figure 4-3, which maps a long to a long. It’s also possible to get back from a primitive stream to a boxed stream through higher-order function variations such as mapToObj and the boxed method, which returns a stream of boxed objects such as `Stream<Long>`.
 
-LongUnaryOperator
-Figure 4-3. LongUnaryOperator
+<Figures figure="4-3">LongUnaryOperator</Figures>
 
 It’s a good idea to use the primitive specialized functions wherever possible because of the performance benefits. You also get additional functionality available on the specialized streams. This allows you to avoid having to implement common functionality and to use code that better conveys the intent of numerical operations. You can see an example of how to use this functionality in Example 4-4.
 
@@ -270,8 +267,7 @@ public interface Child extends Parent {
 
 You can see the class hierarchy at this point in Figure 4-4.
 
-A diagram showing the inheritance hierachy at this point
-Figure 4-4. A diagram showing the inheritance hierarchy at this point
+<Figures figure="4-4">A diagram showing the inheritance hierarchy at this point</Figures>
 
 Example 4-14 calls this interface and consequently ends up sending the string "Child: Hi!".
 
@@ -333,8 +329,7 @@ public void concreteBeatsCloserDefault() {
 }
 ```
 
-A diagram showing the complete inheritance hierachy
-Figure 4-5. A diagram showing the complete inheritance hierarchy
+<Figures figure="4-5">A diagram showing the complete inheritance hierarchy</Figures>
 
 Put simply: class wins. The motivation for this decision is that default methods are designed primarily to allow binary compatible API evolution. Allowing classes to win over any default methods simplifies a lot of inheritance scenarios.
 

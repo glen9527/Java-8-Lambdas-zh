@@ -159,8 +159,8 @@ The functional interface here takes one ActionEvent parameter and doesn’t retu
 
 From now on, I’ll use diagrams to represent the different kinds of functional interfaces you’re encountering. The arrows going into the function represent arguments, and if there’s an arrow coming out, it represents the return type. For example, an ActionListener would look like Figure 2-1.
 
-the ActionListener interface
-Figure 2-1. The ActionListener interface showing an ActionEvent going in and nothing (void) coming out
+<Figures figure="2-1">The ActionListener interface showing an ActionEvent going in and nothing (void) coming out</Figures>
+
 Over time you’ll encounter many functional interfaces, but there is a core group in the Java Development Kit (JDK) that you will see time and time again. I’ve listed some of the most important functional interfaces in Table 2-1.
 
 Table 2-1. Important functional interfaces in Java
@@ -233,8 +233,8 @@ public interface Predicate<T> {
 }
 ```
 
-the Predicate interface
-Figure 2-2. The Predicate interface diagram, generating a boolean from an Object
+<Figures figure="2-2">The Predicate interface diagram, generating a boolean from an Object</Figures>
+
 Let’s look at another, slightly more complex functional interface example: the BinaryOperator interface, which is shown in Example 2-13. This interface takes two arguments and returns a value, all of which are the same type. In the code example we’ve used, this type is Long.
 
 Example 2-13. A more complex type inference example
