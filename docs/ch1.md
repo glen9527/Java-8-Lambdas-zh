@@ -4,7 +4,8 @@
 
 Before we begin our exploration of what lambda expressions are and how we can use them, you should at least understand why they exist to begin with. In this chapter, I’ll cover that and also explain the structure and motivation of this book.
 
-Why Did They Need to Change Java Again?
+## 1.1 Why Did They Need to Change Java Again?
+
 Java 1.0 was released in January 1996, and the world of programming has changed quite a bit since then. Businesses are requiring ever more complex applications, and most programs are executed on machines with powerful multicore CPUs. The rise of Java Virtual Machines (JVM), with efficient runtime compilers has meant that programmers can focus more on writing clean, maintainable code, rather than on code that’s efficiently using every CPU clock cycle and every byte of memory.
 
 The elephant in the room is the rise of multicore CPUs. Programming algorithms involving locks is error-prone and time-consuming. The java.util.concurrent package and the wealth of external libraries have developed a variety of concurrency abstractions that begin to help programmers write code that performs well on multicore CPUs. Unfortunately, we haven’t gone far enough—until now.
@@ -23,30 +24,30 @@ In addition, the language changes that enable the additional collection methods,
 
 It’s not your grandfather’s Java any longer, and that’s a good thing.
 
-What Is Functional Programming?
+## 1.2 What Is Functional Programming?
+
 Functional programming is a term that means different things to different people. At the heart of functional programming is thinking about your problem domain in terms of immutable values and functions that translate between them.
 
 The communities that have developed around different programming languages each tend to think that the set of features that have been incorporated into their language are the key ones. At this stage, it’s a bit too early to tell how Java programmers will define functional programming. In a sense, it’s unimportant; what we really care about is writing good code rather than functional code.
 
 In this book, I focus on pragmatic functional programming, including techniques that can be used and understood by most developers and that help them write programs that are easier to read and maintain.
 
-Example Domain
+## 1.3 Example Domain
+
 Throughout the book, examples are structured around a common problem domain: music. Specifically, the examples represent the kind of information you might see on albums. Here’s a brief summary of the terms:
 
-Artist
-An individual or group who creates music
+- Artist  
+   An individual or group who creates music
+  - name: The name of the artist (e.g., “The Beatles”)
+  - members: A set of other artists who comprise this group (e.g., “John Lennon”); this field might be empty
+  - origin: The primary location of origin of the group (e.g., “Liverpool”).
+- Track  
+   A single piece of music
+  - name: The name of the track (e.g., “Yellow Submarine”)
+- Album  
+   A single release of music, comprising several tracks
+  - name: The name of the album (e.g., “Revolver”)
+  - tracks: A list of tracks
+  - musicians: A list of artists who helped create the music on this album
 
-name: The name of the artist (e.g., “The Beatles”)
-members: A set of other artists who comprise this group (e.g., “John Lennon”); this field might be empty
-origin: The primary location of origin of the group (e.g., “Liverpool”).
-Track
-A single piece of music
-
-name: The name of the track (e.g., “Yellow Submarine”)
-Album
-A single release of music, comprising several tracks
-
-name: The name of the album (e.g., “Revolver”)
-tracks: A list of tracks
-musicians: A list of artists who helped create the music on this album
 This domain is used to illustrate how to use functional programming techniques within a normal business domain or Java application. You may not consider it the perfect example subject, but it’s simple, and many of the code examples in this book will bear similarity to those that you may see in your business domain.
